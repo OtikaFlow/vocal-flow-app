@@ -31,7 +31,7 @@ export function useGoogleCalendar() {
         setError(null);
 
         try {
-            const response = await fetch('/.netlify/functions/create-calendar-event', {
+            const response = await fetch('/api/create-calendar-event', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export function useGoogleCalendar() {
 
     const getAuthUrl = async (): Promise<string | null> => {
         try {
-            const response = await fetch('/.netlify/functions/google-auth');
+            const response = await fetch('/api/google-auth');
 
             // Check content type for JSON
             const contentType = response.headers.get('content-type');
