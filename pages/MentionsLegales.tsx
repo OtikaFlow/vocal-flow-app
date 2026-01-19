@@ -23,8 +23,7 @@ const MentionsLegales: React.FC = () => {
                             </p>
                             <p>
                                 <strong>Contact :</strong><br />
-                                Email : contact@vocalflow.ai<br />
-                                Téléphone : +33 1 23 45 67 89
+                                Email : contact@vocalflow.fr
                             </p>
                             <p>
                                 <strong>Adresse :</strong><br />
