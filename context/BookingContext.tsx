@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { db } from '../lib/firebase';
+import { collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, query, orderBy } from 'firebase/firestore';
 
 export type AppointmentType = 'visio' | 'phone';
 export type AppointmentStatus = 'pending' | 'confirmed' | 'cancelled';
@@ -18,9 +20,9 @@ export interface Appointment {
 
 interface BookingContextType {
     appointments: Appointment[];
-    addAppointment: (appointment: Omit<Appointment, 'id' | 'createdAt' | 'status'>) => void;
-    updateAppointmentStatus: (id: string, status: AppointmentStatus, meetLink?: string) => void;
-    deleteAppointment: (id: string) => void;
+    addAppointment: (appointment: Omit<Appointment, 'id' | 'createdAt' | 'status'>) => Promise<void>;
+    updateAppointmentStatus: (id: string, status: AppointmentStatus, meetLink?: string) => Promise<void>;
+    deleteAppointment: (id: string) => Promise<void>;
     isModalOpen: boolean;
     openModal: () => void;
     closeModal: () => void;
@@ -37,40 +39,50 @@ export const useBooking = () => {
 };
 
 export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [appointments, setAppointments] = useState<Appointment[]>(() => {
-        const saved = localStorage.getItem('vocalflow_appointments');
-        try {
-            return saved ? JSON.parse(saved) : [];
-        } catch (e) {
-            console.error("Failed to parse appointments", e);
-            return [];
-        }
-    });
+    const [appointments, setAppointments] = useState<Appointment[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Save to localStorage whenever appointments change
+    // Real-time synchronization with Firestore
     useEffect(() => {
-        localStorage.setItem('vocalflow_appointments', JSON.stringify(appointments));
-    }, [appointments]);
+        const q = query(collection(db, "appointments"), orderBy("createdAt", "desc"));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const apps: Appointment[] = [];
+            snapshot.forEach((doc) => {
+                apps.push({ id: doc.id, ...doc.data() } as Appointment);
+            });
+            setAppointments(apps);
+        });
 
-    const addAppointment = (data: Omit<Appointment, 'id' | 'createdAt' | 'status'>) => {
-        const newAppointment: Appointment = {
-            ...data,
-            id: Math.random().toString(36).substr(2, 9),
-            status: 'pending',
-            createdAt: Date.now(),
-        };
-        setAppointments(prev => [newAppointment, ...prev]);
+        return () => unsubscribe();
+    }, []);
+
+    const addAppointment = async (data: Omit<Appointment, 'id' | 'createdAt' | 'status'>) => {
+        try {
+            await addDoc(collection(db, "appointments"), {
+                ...data,
+                status: 'pending',
+                createdAt: Date.now(),
+            });
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
     };
 
-    const updateAppointmentStatus = (id: string, status: AppointmentStatus, meetLink?: string) => {
-        setAppointments(prev => prev.map(app =>
-            app.id === id ? { ...app, status, meetLink } : app
-        ));
+    const updateAppointmentStatus = async (id: string, status: AppointmentStatus, meetLink?: string) => {
+        const appointmentRef = doc(db, "appointments", id);
+        try {
+            await updateDoc(appointmentRef, { status, ...(meetLink ? { meetLink } : {}) });
+        } catch (e) {
+            console.error("Error updating document: ", e);
+        }
     };
 
-    const deleteAppointment = (id: string) => {
-        setAppointments(prev => prev.filter(app => app.id !== id));
+    const deleteAppointment = async (id: string) => {
+        try {
+            await deleteDoc(doc(db, "appointments", id));
+        } catch (e) {
+            console.error("Error deleting document: ", e);
+        }
     };
 
     const openModal = () => setIsModalOpen(true);
