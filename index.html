@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta -->
+  <title>Vocal Flow — Assistant Vocal IA pour Call Centers, Cabinets Dentaires & Garages | Automatisation Appels</title>
+  <meta name="description"
+    content="Automatisez vos appels avec Vocal Flow : prise de RDV automatique, qualification client ultra-précise (97,6%), transcription complète. Idéal pour call centers, cabinets dentaires et garages. Installation en 3-5 jours.">
+  <meta name="keywords"
+    content="assistant vocal IA, automatisation appels, prise de rendez-vous automatique, call center IA, qualification client, transcription appels, IA vocale call center, assistant vocal cabinet dentaire, automatisation garage, vocal flow, intelligence artificielle vocale, CRM vocal, gestion appels automatique">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vocal Flow — Assistant Vocal IA pour Automatiser vos Appels">
+  <meta property="og:description"
+    content="97,6% de précision contextuelle. Automatisez prise de RDV, qualification client et gestion d'appels. Installation Done For You en 3-5 jours. Idéal call centers, cabinets médicaux, garages.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og-image.jpg">
+  <meta property="og:url" content="https://vocalflow.ai">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Orbitron', 'sans-serif'],
+            tech: ['Rajdhani', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#acc2ef',
+              100: '#1F3A5F',
+              200: '#4d648d',
+              300: '#acc2ef',
+              foreground: '#0F1C2E',
+            },
+            accent: {
+              DEFAULT: '#cee8ff',
+              100: '#3D5A80',
+              200: '#cee8ff',
+              foreground: '#0F1C2E',
+            },
+            text: {
+              100: '#FFFFFF',
+              200: '#e0e0e0',
+            },
+            bg: {
+              100: '#0F1C2E',
+              200: '#1f2b3e',
+              300: '#374357',
+            },
+            // Shadcn UI Colors
+            background: '#0F1C2E',
+            foreground: '#FFFFFF',
+            card: {
+              DEFAULT: '#1f2b3e',
+              foreground: '#FFFFFF',
+            },
+            popover: {
+              DEFAULT: '#1f2b3e',
+              foreground: '#FFFFFF',
+            },
+            secondary: {
+              DEFAULT: '#1f2b3e',
+              foreground: '#FFFFFF',
+            },
+            muted: {
+              DEFAULT: '#374357',
+              foreground: '#a0a0a0',
+            },
+            destructive: {
+              DEFAULT: '#ef4444',
+              foreground: '#FFFFFF',
+            },
+            border: '#374357',
+            input: '#374357',
+            ring: '#acc2ef',
+            // Keep legacy neon names for compatibility
+            neon: {
+              blue: '#acc2ef',
+              cyan: '#cee8ff',
+              dark: '#0F1C2E',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            scroll: {
+              to: {
+                transform: 'translate(calc(-50% - 0.5rem))',
+              },
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0F1C2E;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0F1C2E;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #374357;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #acc2ef;
+    }
+
+    .perspective-text {
+      text-shadow: 0 0 15px rgba(172, 194, 239, 0.4);
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
