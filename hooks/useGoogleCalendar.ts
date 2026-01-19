@@ -46,7 +46,7 @@ export function useGoogleCalendar() {
             // Check content type for JSON
             const contentType = response.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('API non disponible. Assurez-vous de lancer le site avec "npm run start" (Netlify Dev).');
+                throw new Error(`API error: ${response.status} ${response.statusText}`);
             }
 
             if (!response.ok) {
@@ -77,7 +77,7 @@ export function useGoogleCalendar() {
             // Check content type for JSON
             const contentType = response.headers.get('content-type');
             if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('API non disponible. Assurez-vous de lancer le site avec "npm run start" (Netlify Dev).');
+                throw new Error(`API error: ${response.status} ${response.statusText}`);
             }
 
             const data = await response.json();
