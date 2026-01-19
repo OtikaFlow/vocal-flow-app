@@ -21,19 +21,14 @@ const Footer: React.FC = () => {
                             L'intelligence artificielle qui transforme votre gestion d'appels. Automatisation, transcription et analyse pour les entreprises modernes.
                         </p>
                         <div className="flex gap-4">
-                            {[
-                                { icon: Twitter, href: "#" },
-                                { icon: Linkedin, href: "#" },
-                                { icon: Github, href: "#" }
-                            ].map((social, idx) => (
-                                <a
-                                    key={idx}
-                                    href={social.href}
-                                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-300/20 hover:border-primary-300/50 transition-all duration-300 group"
-                                >
-                                    <social.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                                </a>
-                            ))}
+                            <a
+                                href="https://www.linkedin.com/in/yassir-larabi/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-300/20 hover:border-primary-300/50 transition-all duration-300 group"
+                            >
+                                <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                            </a>
                         </div>
                     </div>
 
@@ -60,24 +55,12 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="font-display font-bold text-white mb-6">Contact</h4>
                         <div className="space-y-4">
-                            <a href="mailto:contact@vocalflow.ai" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+                            <a href="https://www.google.com/maps/place/Paris,+France" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-primary-300/10 transition-colors">
-                                    <Mail className="w-4 h-4" />
-                                </div>
-                                <span className="text-sm">contact@vocalflow.ai</span>
-                            </a>
-                            <div className="flex items-center gap-3 text-gray-400 group">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
-                                    <Phone className="w-4 h-4" />
-                                </div>
-                                <span className="text-sm">+33 1 23 45 67 89</span>
-                            </div>
-                            <div className="flex items-center gap-3 text-gray-400 group">
-                                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
                                     <MapPin className="w-4 h-4" />
                                 </div>
                                 <span className="text-sm">Paris, France</span>
-                            </div>
+                            </a>
                         </div>
 
                         {/* Newsletter Tiny */}
@@ -103,9 +86,8 @@ const Footer: React.FC = () => {
                         &copy; 2025 Vocal Flow. Tous droits réservés.
                     </p>
                     <div className="flex gap-6">
-                        <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Mentions Légales</a>
-                        <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Confidentialité</a>
-                        <a href="#" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">CGV</a>
+                        <Link to="/mentions-legales" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Mentions Légales</Link>
+                        <Link to="/confidentialite" className="text-gray-600 hover:text-gray-400 text-xs transition-colors">Confidentialité</Link>
                         <span className="text-gray-700 text-xs">|</span>
                         <a href="https://otika.fr" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-neon-blue text-xs transition-colors">
                             Made by Otika

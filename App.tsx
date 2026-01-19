@@ -8,6 +8,8 @@ import Demos from './pages/Demos';
 import DatabaseFeature from './pages/features/Database';
 import FeaturesDetail from './pages/FeaturesDetail';
 import AdminDashboard from './pages/AdminDashboard';
+import MentionsLegales from './pages/MentionsLegales';
+import Confidentialite from './pages/Confidentialite';
 import HudOverlay from './components/HudOverlay';
 
 import Footer from './components/Footer';
@@ -32,6 +34,8 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/features/database" element={<DatabaseFeature />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/confidentialite" element={<Confidentialite />} />
         </Routes>
         <BookingModal />
         <Footer />

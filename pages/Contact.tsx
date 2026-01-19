@@ -370,20 +370,12 @@ const Contact: React.FC = () => {
                         <div className="space-y-6">
                             {[
                                 {
-                                    icon: <Mail className="w-6 h-6" />,
-                                    title: "Email",
-                                    desc: "Notre équipe vous répond rapidement",
-                                    link: "mailto:contact@vocalflow.ai",
-                                    linkText: "contact@vocalflow.ai",
-                                    delay: 0.1
-                                },
-                                {
-                                    icon: <Phone className="w-6 h-6" />,
-                                    title: "Téléphone",
+                                    icon: <Clock className="w-6 h-6" />,
+                                    title: "Horaires",
                                     desc: "Lun-Ven, 9h-18h (heure de Paris)",
-                                    link: "tel:+33123456789",
-                                    linkText: "+33 1 23 45 67 89",
-                                    delay: 0.2
+                                    link: null,
+                                    linkText: "",
+                                    delay: 0.1
                                 }
                             ].map((item, idx) => (
                                 <ScrollReveal key={idx} direction="left" delay={item.delay}>

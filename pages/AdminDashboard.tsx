@@ -46,7 +46,7 @@ const AdminDashboard: React.FC = () => {
     // Simple mock login
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (password === 'admin123') {
+        if (password === 'Vokaladmin,*') {
             setIsLoggedIn(true);
             localStorage.setItem('vocalflow_admin_auth', 'true');
             setError('');
@@ -124,7 +124,7 @@ const AdminDashboard: React.FC = () => {
                     <form onSubmit={handleLogin} className="space-y-4">
                         <input
                             type="password"
-                            placeholder="Mot de passe (admin123)"
+                            placeholder="Mot de passe"
                             className="w-full bg-bg-100 border border-white/10 rounded-lg py-3 px-4 text-white focus:border-primary-300 focus:outline-none"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
