@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { createOAuth2Client, getAuthUrl } from '../lib/google-calendar';
+import { google } from 'googleapis';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Handle CORS
@@ -12,22 +12,46 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     try {
-        const config = {
-            clientId: process.env.GOOGLE_CLIENT_ID || '',
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
-            redirectUri: process.env.GOOGLE_REDIRECT_URI || `${process.env.VERCEL_URL}/api/google-callback`,
-        };
+        const clientId = process.env.GOOGLE_CLIENT_ID;
+        const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+        const redirectUri = process.env.GOOGLE_REDIRECT_URI || `https://${process.env.VERCEL_URL}/api/google-callback`;
 
-        if (!config.clientId || !config.clientSecret) {
-            return res.status(500).json({ error: 'Google OAuth credentials not configured' });
+        // Debug logging (will show in Vercel logs)
+        console.log('API /google-auth Config Check:');
+        console.log('- Client ID Present:', !!clientId);
+        console.log('- Client Secret Present:', !!clientSecret);
+        console.log('- Redirect URI:', redirectUri);
+
+        if (!clientId || !clientSecret) {
+            return res.status(500).json({
+                error: 'Configuration manquante',
+                details: 'GOOGLE_CLIENT_ID ou GOOGLE_CLIENT_SECRET est manquant dans les variables d\'environnement Vercel.'
+            });
         }
 
-        const oauth2Client = createOAuth2Client(config);
-        const authUrl = getAuthUrl(oauth2Client);
+        const oauth2Client = new google.auth.OAuth2(
+            clientId,
+            clientSecret,
+            redirectUri
+        );
+
+        const scopes = [
+            'https://www.googleapis.com/auth/calendar',
+            'https://www.googleapis.com/auth/calendar.events'
+        ];
+
+        const authUrl = oauth2Client.generateAuthUrl({
+            access_type: 'offline',
+            scope: scopes,
+            prompt: 'consent'
+        });
 
         return res.status(200).json({ authUrl });
     } catch (error: any) {
-        console.error('Error generating auth URL:', error);
-        return res.status(500).json({ error: error.message });
+        console.error('Error handling /google-auth:', error);
+        return res.status(500).json({
+            error: 'Erreur interne',
+            details: error.message
+        });
     }
 }
