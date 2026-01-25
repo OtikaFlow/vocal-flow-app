@@ -370,6 +370,14 @@ const Contact: React.FC = () => {
                         <div className="space-y-6">
                             {[
                                 {
+                                    icon: <Mail className="w-6 h-6" />,
+                                    title: "Nous Contacter",
+                                    desc: "contact@vocal-flow.fr",
+                                    link: "mailto:contact@vocal-flow.fr",
+                                    linkText: "Envoyer un email",
+                                    delay: 0
+                                },
+                                {
                                     icon: <Clock className="w-6 h-6" />,
                                     title: "Horaires",
                                     desc: "Lun-Ven, 9h-18h (heure de Paris)",

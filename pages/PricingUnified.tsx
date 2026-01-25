@@ -48,7 +48,7 @@ const PricingUnified: React.FC = () => {
     ];
 
     return (
-        <div style={{ width: '100vw', minHeight: '100vh', backgroundColor: '#0F1C2E', overflowX: 'hidden' }}>
+        <div className="w-full min-h-screen bg-[#0F1C2E]">
 
             {/* HERO SECTION */}
             <section className="relative w-full min-h-[95vh] flex items-center justify-center px-6 md:px-12 pt-32 pb-20 overflow-hidden">
@@ -59,7 +59,7 @@ const PricingUnified: React.FC = () => {
                         background="transparent"
                         minSize={0.6}
                         maxSize={1.4}
-                        particleDensity={80}
+                        particleDensity={40}
                         className="w-full h-full"
                         particleColor="#FFFFFF"
                     />
@@ -76,7 +76,7 @@ const PricingUnified: React.FC = () => {
                         </div>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={0.2} blur>
+                    <ScrollReveal delay={0.2}>
                         <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-9xl text-white mb-8 leading-[1.05] drop-shadow-2xl">
                             Un Prix.<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-white to-accent-200 animate-gradient-x">
@@ -133,7 +133,7 @@ const PricingUnified: React.FC = () => {
                         <ScrollReveal delay={0.1}>
                             <div className="group relative">
                                 <div className="absolute -inset-[2px] bg-gradient-to-br from-[#1C2A3A] to-[#0F1C2E] rounded-3xl"></div>
-                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#ACC2EF]/50 transition-all duration-500 hover:-translate-y-2">
+                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:border-[#ACC2EF]/50 transition-all duration-500 hover:-translate-y-2">
                                     <div className="mb-6">
                                         <div className="text-[#8B9DC3] text-sm uppercase tracking-wider mb-3">Installation</div>
                                         <h3 className="font-display font-bold text-2xl text-white mb-4">
@@ -220,7 +220,7 @@ const PricingUnified: React.FC = () => {
                         <ScrollReveal delay={0.3}>
                             <div className="group relative">
                                 <div className="absolute -inset-[2px] bg-gradient-to-br from-[#1C2A3A] to-[#0F1C2E] rounded-3xl"></div>
-                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#FF6B6B]/50 transition-all duration-500 hover:-translate-y-2">
+                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:border-[#FF6B6B]/50 transition-all duration-500 hover:-translate-y-2">
                                     <div className="mb-6">
                                         <div className="text-[#8B9DC3] text-sm uppercase tracking-wider mb-3">Installation</div>
                                         <h3 className="font-display font-bold text-2xl text-white mb-4">
@@ -260,7 +260,7 @@ const PricingUnified: React.FC = () => {
                     {/* Explanation */}
                     <ScrollReveal delay={0.4}>
                         <div className="mt-20 max-w-4xl mx-auto">
-                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/50 to-[#0F1C2E]/50 backdrop-blur-xl border border-[#ACC2EF]/20 p-6 md:p-10">
+                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/50 to-[#0F1C2E]/50 backdrop-blur-lg border border-[#ACC2EF]/20 p-6 md:p-10">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#ACC2EF]/5 rounded-full blur-3xl"></div>
                                 <div className="relative flex flex-col md:flex-row items-start gap-6 w-full">
                                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ACC2EF]/20 to-[#7FA8E8]/10 flex items-center justify-center flex-shrink-0 border border-[#ACC2EF]/30">
@@ -309,7 +309,7 @@ const PricingUnified: React.FC = () => {
                     {/* Pricing Explanation */}
                     <ScrollReveal delay={0.2}>
                         <div className="max-w-4xl mx-auto">
-                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/80 to-[#0F1C2E]/80 backdrop-blur-xl border border-[#ACC2EF]/20 p-6 md:p-12">
+                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/80 to-[#0F1C2E]/80 backdrop-blur-lg border border-[#ACC2EF]/20 p-6 md:p-12">
                                 {/* Glow effect */}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#ACC2EF]/10 rounded-full blur-3xl"></div>
 
@@ -377,7 +377,7 @@ const PricingUnified: React.FC = () => {
                         <ScrollReveal delay={0.1}>
                             <div className="group relative">
                                 <div className="absolute -inset-[2px] bg-gradient-to-br from-[#1C2A3A] to-[#0F1C2E] rounded-3xl"></div>
-                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#5B8DEF]/50 transition-all duration-500 hover:-translate-y-2">
+                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:border-[#5B8DEF]/50 transition-all duration-500 hover:-translate-y-2">
                                     <div className="mb-8">
                                         <h3 className="font-display font-bold text-2xl text-white mb-2">STARTER</h3>
                                         <p className="text-[#8B9DC3] text-sm">3 appels/jour</p>
@@ -434,7 +434,7 @@ const PricingUnified: React.FC = () => {
                         <ScrollReveal delay={0.3}>
                             <div className="group relative">
                                 <div className="absolute -inset-[2px] bg-gradient-to-br from-[#1C2A3A] to-[#0F1C2E] rounded-3xl"></div>
-                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#FF6B6B]/50 transition-all duration-500 hover:-translate-y-2">
+                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:border-[#FF6B6B]/50 transition-all duration-500 hover:-translate-y-2">
                                     <div className="mb-8">
                                         <h3 className="font-display font-bold text-2xl text-white mb-2">SCALE</h3>
                                         <p className="text-[#8B9DC3] text-sm">30 appels/jour</p>
@@ -459,7 +459,7 @@ const PricingUnified: React.FC = () => {
                         <ScrollReveal delay={0.4}>
                             <div className="group relative">
                                 <div className="absolute -inset-[2px] bg-gradient-to-br from-[#1C2A3A] to-[#0F1C2E] rounded-3xl"></div>
-                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:border-[#A78BFA]/50 transition-all duration-500 hover:-translate-y-2">
+                                <div className="relative bg-gradient-to-br from-[#1C2A3A]/90 to-[#0F1C2E]/90 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:border-[#A78BFA]/50 transition-all duration-500 hover:-translate-y-2">
                                     <div className="mb-8">
                                         <h3 className="font-display font-bold text-2xl text-white mb-2">ENTERPRISE</h3>
                                         <p className="text-[#8B9DC3] text-sm">+30 appels/jour</p>
@@ -483,7 +483,7 @@ const PricingUnified: React.FC = () => {
                     {/* Explanation */}
                     <ScrollReveal delay={0.5}>
                         <div className="mt-20 max-w-4xl mx-auto">
-                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/50 to-[#0F1C2E]/50 backdrop-blur-xl border border-[#FF6B6B]/20 p-6 md:p-10">
+                            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1C2A3A]/50 to-[#0F1C2E]/50 backdrop-blur-lg border border-[#FF6B6B]/20 p-6 md:p-10">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF6B6B]/5 rounded-full blur-3xl"></div>
                                 <div className="relative flex flex-col md:flex-row items-start gap-6 w-full">
                                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FF6B6B]/20 to-[#EE5A6F]/10 flex items-center justify-center flex-shrink-0 border border-[#FF6B6B]/30">

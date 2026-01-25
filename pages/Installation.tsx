@@ -140,7 +140,7 @@ const Installation: React.FC = () => {
     ];
 
     return (
-        <div style={{ width: '100vw', minHeight: '100vh', backgroundColor: '#0F1C2E', overflowX: 'hidden' }}>
+        <div className="w-full min-h-screen bg-[#0F1C2E]">
 
             {/* Hero Section */}
             <section className="relative w-full min-h-[85vh] flex items-center justify-center px-6 md:px-12 pt-32 pb-20 overflow-hidden">
@@ -151,7 +151,7 @@ const Installation: React.FC = () => {
                         background="transparent"
                         minSize={0.6}
                         maxSize={1.4}
-                        particleDensity={100}
+                        particleDensity={40}
                         className="w-full h-full"
                         particleColor="#FFFFFF"
                     />
@@ -168,7 +168,7 @@ const Installation: React.FC = () => {
                         </div>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={0.2} blur>
+                    <ScrollReveal delay={0.2}>
                         <h1 className="font-display font-bold text-5xl md:text-7xl text-white mb-6 leading-tight drop-shadow-2xl">
                             Installation <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-white to-accent-200 animate-gradient-x">Done For You</span><br />
                             <span className="text-4xl md:text-6xl text-text-200 mt-2 block">En 3 à 5 Jours</span>

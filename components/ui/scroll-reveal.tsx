@@ -28,13 +28,13 @@ export const ScrollReveal = ({
             opacity: 0,
             y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
             x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-            filter: blur ? "blur(10px)" : "none",
+            // filter: blur ? "blur(10px)" : "none", // Removed for performance
         },
         visible: {
             opacity: 1,
             y: 0,
             x: 0,
-            filter: "blur(0px)",
+            // filter: "blur(0px)", // Removed for performance
             transition: {
                 duration: duration,
                 delay: delay,
@@ -50,6 +50,7 @@ export const ScrollReveal = ({
             animate={isInView ? "visible" : "hidden"}
             variants={variants}
             className={cn(className)}
+            style={{ willChange: "transform, opacity" }}
         >
             {children}
         </motion.div>
